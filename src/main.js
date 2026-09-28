@@ -1,4 +1,5 @@
 import { SECTORS, API_KEY_STORAGE_KEY, SESSION_STORAGE_KEY } from "./constants.js";
+import { waitForUnlock } from "./gate.js";
 import { createEmptyState, applyUpdate } from "./logframe-state.js";
 import { renderLogframe } from "./render.js";
 import { buildSystemPrompt, runTurn, loadGcfIndicators } from "./claude.js";
@@ -250,4 +251,4 @@ function init() {
   }
 }
 
-init();
+waitForUnlock().then(init);

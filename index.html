@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GN Logframe Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>GN Logframe Generator</h1>
+    <div class="app-header-actions">
+      <button id="new-session-btn" class="btn btn-ghost">New session</button>
+      <button id="settings-btn" class="btn btn-ghost" title="API key settings">⚙ Settings</button>
+    </div>
+  </header>
+
+  <section id="sector-picker" class="sector-picker">
+    <h2>Which sector is this project in?</h2>
+    <p class="hint">This picks the Good Change Framework indicator pool and the PPF sheet used for export.</p>
+    <div id="sector-buttons" class="sector-buttons"></div>
+  </section>
+
+  <main id="app-main" class="app-main hidden">
+    <section class="chat-panel">
+      <div id="chat-log" class="chat-log"></div>
+      <form id="chat-form" class="chat-form">
+        <textarea id="chat-input" rows="2" placeholder="Describe the activity idea or donor requirement to start, or answer the question above…"></textarea>
+        <button type="submit" id="chat-send-btn" class="btn btn-primary">Send</button>
+      </form>
+    </section>
+
+    <section class="preview-panel">
+      <div class="export-toolbar">
+        <button id="copy-btn" class="btn">Copy table</button>
+        <button id="xlsx-btn" class="btn">Download .xlsx</button>
+        <button id="ppf-btn" class="btn">Inject into PPF</button>
+      </div>
+      <div id="export-warnings" class="export-warnings hidden"></div>
+      <div id="logframe-preview" class="logframe-preview"></div>
+    </section>
+  </main>
+
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-card">
+      <h2>Claude API key</h2>
+      <p class="hint">
+        Stored only in this browser's local storage. It is sent directly from your browser to
+        Anthropic's API (api.anthropic.com) with every message — never to any other server.
+        Don't use this on a shared or public computer.
+      </p>
+      <input id="api-key-input" type="password" placeholder="sk-ant-..." autocomplete="off" />
+      <div class="modal-actions">
+        <button id="settings-cancel-btn" class="btn btn-ghost">Cancel</button>
+        <button id="settings-save-btn" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

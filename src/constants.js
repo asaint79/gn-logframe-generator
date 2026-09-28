@@ -32,7 +32,7 @@ export const INDICATOR_COLUMNS = [
   ["frequency", "Frequency of Data Collection"],
 ];
 
-export const CLAUDE_MODEL = "claude-sonnet-5";
+export const CLAUDE_MODEL = "claude-haiku-4-5-20251001";
 export const ANTHROPIC_VERSION = "2023-06-01";
 export const API_KEY_STORAGE_KEY = "gn-logframe:api-key";
 export const SESSION_STORAGE_KEY = "gn-logframe:session";
